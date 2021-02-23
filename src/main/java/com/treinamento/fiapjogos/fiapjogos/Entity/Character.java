@@ -1,18 +1,10 @@
 package com.treinamento.fiapjogos.fiapjogos.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "TB_CHARACTER")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Character {
 
     @Id
@@ -28,5 +20,45 @@ public class Character {
     @ManyToOne
     private Game game;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Character(Integer id, String name, String imageUrl, Game game) {
+        this.id = id;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.game = game;
+    }
+
+    public Character() {
+    }
 }
