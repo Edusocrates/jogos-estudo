@@ -1,8 +1,11 @@
 package com.treinamento.fiapjogos.fiapjogos.DTO;
 
 import com.treinamento.fiapjogos.fiapjogos.Entity.Category;
+import com.treinamento.fiapjogos.fiapjogos.Entity.Game;
+
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CreateGameDTO {
 
@@ -17,6 +20,18 @@ public class CreateGameDTO {
     private Category category;
 
     private List<CharacterDTO> characterList;
+
+    public CreateGameDTO(Game game) {
+        this.name = game.getName();
+        this.releaseDate = game.getReleaseDate();
+        this.imageUrl = game.getImageUrl();
+        this.rating = game.getRating();
+        this.category = game.getCategory();
+        this.characterList = game.getCharacterList()
+                .stream()
+                .map(CharacterDTO::new)
+                .collect(Collectors.toList());
+    }
 
     public String getName() {
         return name;
