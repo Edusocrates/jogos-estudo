@@ -39,8 +39,9 @@ public class GameController {
     }
 
     @PutMapping({"gameId"})
-    public GameDTO updateGame(@RequestParam Integer gameId,@RequestParam CreateGameDTO createGameDTO){
-        return service.updateGame(gameId,createGameDTO);
+    public ResponseEntity<GameDTO> updateGame(@RequestParam Integer gameId,@RequestParam CreateGameDTO createGameDTO){
+          GameDTO gameDTO = service.updateGame(gameId,createGameDTO);
+         return ResponseEntity.ok(gameDTO);
     }
 
 
