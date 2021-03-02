@@ -5,6 +5,7 @@ import com.treinamento.fiapjogos.fiapjogos.DTO.GameDTO;
 import com.treinamento.fiapjogos.fiapjogos.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,13 +28,14 @@ public class GameController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GameDTO insertGame(@RequestParam CreateGameDTO createGameDTO){
+    public GameDTO insertGame(@RequestBody CreateGameDTO createGameDTO){
         return service.createGame(createGameDTO);
     }
 
     @DeleteMapping("{gameId}")
-    public void deleteGame(@RequestParam Integer gameId){
+    public ResponseEntity<?> deleteGame(@RequestParam Integer gameId){
         service.deleteGame(gameId);
+        return ResponseEntity.ok(null);
     }
 
     @PutMapping({"gameId"})

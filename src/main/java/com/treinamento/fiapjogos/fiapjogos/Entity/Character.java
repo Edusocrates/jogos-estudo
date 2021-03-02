@@ -1,6 +1,8 @@
 package com.treinamento.fiapjogos.fiapjogos.Entity;
 
 
+import com.treinamento.fiapjogos.fiapjogos.DTO.CharacterDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -60,5 +62,21 @@ public class Character {
     }
 
     public Character() {
+    }
+    public static CharacterDTO toFullDTO(Character character){
+        CharacterDTO characterDTO = new CharacterDTO();
+        characterDTO.setId(character.getId());
+        characterDTO.setName(character.getName());
+        characterDTO.setImageUrl(character.getImageUrl());
+
+        return characterDTO;
+    }
+    public static Character fromDTO(CharacterDTO characterDTO){
+        Character character = new Character();
+        character.setId(characterDTO.getId());
+        character.setName(characterDTO.getName());
+        character.setImageUrl(characterDTO.getImageUrl());
+
+        return character;
     }
 }
