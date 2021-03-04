@@ -59,6 +59,9 @@ public class GameServiceImpl implements GameService {
 //        game.setName(createGameDTO.getName());
 //        game.setCategory(createGameDTO.getCategory());
         //outra forma de atualizar é utilizandoo o BeanUtils para fazer o processo automatico
+        if(createGameDTO.getName() == null || createGameDTO.getName().isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Não pode deixar o nome nulo");
+        }
         BeanUtils.copyProperties(createGameDTO,game);
         Game updatedGame = repository.save(game);
         return new GameDTO(updatedGame);

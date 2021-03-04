@@ -74,6 +74,12 @@ public class CharacterServiceImpl implements CharacterService {
         if(characterId != null){
             Character character = repository.findById(characterId)
                     .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Personagem não encontrado"));
+            if(createCharacterDTO.getName() == null || createCharacterDTO.getName().isEmpty()){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Não pode deixar o nome nulo");
+            }
+            if(createCharacterDTO.getImageUrl() == null || createCharacterDTO.getImageUrl().isEmpty()){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Não pode deixar a imagem null");
+            }
             BeanUtils.copyProperties(createCharacterDTO, character);
             Character updatedCharacter = repository.save(character);
             return new CharacterDTO(updatedCharacter);
