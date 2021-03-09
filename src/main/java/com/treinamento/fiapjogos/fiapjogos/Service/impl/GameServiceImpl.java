@@ -2,6 +2,7 @@ package com.treinamento.fiapjogos.fiapjogos.Service.impl;
 
 import com.treinamento.fiapjogos.fiapjogos.DTO.CreateGameDTO;
 import com.treinamento.fiapjogos.fiapjogos.DTO.GameDTO;
+import com.treinamento.fiapjogos.fiapjogos.DTO.SimpleGameDTO;
 import com.treinamento.fiapjogos.fiapjogos.Entity.Game;
 import com.treinamento.fiapjogos.fiapjogos.Repository.GameRepository;
 import com.treinamento.fiapjogos.fiapjogos.Service.GameService;
@@ -20,11 +21,11 @@ public class GameServiceImpl implements GameService {
     private GameRepository repository;
 
     @Override
-    public List<CreateGameDTO> getGameList(String name) {
+    public List<SimpleGameDTO> getGameList(String name) {
         List<Game> gameList = repository.findAll();
         return gameList.stream()
                 .filter(game -> name == null || game.getName().startsWith(name))
-                .map(CreateGameDTO::new).collect(Collectors.toList());
+                .map(SimpleGameDTO::new).collect(Collectors.toList());
     }
 
     @Override

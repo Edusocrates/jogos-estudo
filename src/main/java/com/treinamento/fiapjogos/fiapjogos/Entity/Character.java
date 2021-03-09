@@ -79,4 +79,14 @@ public class Character {
 
         return character;
     }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", game=" + game +
+                '}';
+    }
 }

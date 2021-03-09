@@ -2,7 +2,7 @@ package com.treinamento.fiapjogos.fiapjogos.Service;
 
 import com.treinamento.fiapjogos.fiapjogos.DTO.CreateGameDTO;
 import com.treinamento.fiapjogos.fiapjogos.DTO.GameDTO;
-import org.springframework.stereotype.Service;
+import com.treinamento.fiapjogos.fiapjogos.DTO.SimpleGameDTO;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public interface GameService {
 
 
-    List<CreateGameDTO> getGameList(String name);
+    List<SimpleGameDTO> getGameList(String name);
 
     GameDTO findGameById(Integer id);
 

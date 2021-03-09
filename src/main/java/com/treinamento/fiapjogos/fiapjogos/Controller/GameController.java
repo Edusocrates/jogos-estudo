@@ -2,6 +2,7 @@ package com.treinamento.fiapjogos.fiapjogos.Controller;
 
 import com.treinamento.fiapjogos.fiapjogos.DTO.CreateGameDTO;
 import com.treinamento.fiapjogos.fiapjogos.DTO.GameDTO;
+import com.treinamento.fiapjogos.fiapjogos.DTO.SimpleGameDTO;
 import com.treinamento.fiapjogos.fiapjogos.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class GameController {
     private GameService service;
 
     @GetMapping
-    public List<CreateGameDTO> getGameList(@RequestParam(required = false) String name){
+    public List<SimpleGameDTO> getGameList(@RequestParam(required = false) String name){
         return service.getGameList(name);
     }
     @GetMapping("{gameId}")
