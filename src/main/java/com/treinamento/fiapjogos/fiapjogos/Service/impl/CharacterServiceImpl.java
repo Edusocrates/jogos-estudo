@@ -9,12 +9,13 @@ import com.treinamento.fiapjogos.fiapjogos.Service.CharacterService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class CharacterServiceImpl implements CharacterService {
 
     @Autowired
@@ -74,6 +75,12 @@ public class CharacterServiceImpl implements CharacterService {
         if(characterId != null){
             Character character = repository.findById(characterId)
                     .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Personagem não encontrado"));
+            if(createCharacterDTO.getName() == null || createCharacterDTO.getName().isEmpty()){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Não pode deixar o nome nulo");
+            }
+            if(createCharacterDTO.getImageUrl() == null || createCharacterDTO.getImageUrl().isEmpty()){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Não pode deixar a imagem null");
+            }
             BeanUtils.copyProperties(createCharacterDTO, character);
             Character updatedCharacter = repository.save(character);
             return new CharacterDTO(updatedCharacter);

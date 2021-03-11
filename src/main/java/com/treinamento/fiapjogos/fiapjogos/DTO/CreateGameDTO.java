@@ -1,6 +1,7 @@
 package com.treinamento.fiapjogos.fiapjogos.DTO;
 
 import com.treinamento.fiapjogos.fiapjogos.Entity.Category;
+import com.treinamento.fiapjogos.fiapjogos.Entity.Character;
 import com.treinamento.fiapjogos.fiapjogos.Entity.Game;
 
 import java.util.Date;
@@ -19,19 +20,19 @@ public class CreateGameDTO {
 
     private Category category;
 
-    private List<CharacterDTO> characterList;
+    private List<Character> characterList;
 
-    public CreateGameDTO(Game game) {
-        this.name = game.getName();
-        this.releaseDate = game.getReleaseDate();
-        this.imageUrl = game.getImageUrl();
-        this.rating = game.getRating();
-        this.category = game.getCategory();
-        this.characterList = game.getCharacterList()
-                .stream()
-                .map(CharacterDTO::new)
-                .collect(Collectors.toList());
-    }
+//    public CreateGameDTO(Game game) {
+//        this.name = game.getName();
+//        this.releaseDate = game.getReleaseDate();
+//        this.imageUrl = game.getImageUrl();
+//        this.rating = game.getRating();
+//        this.category = game.getCategory();
+//        this.characterList = game.getCharacterList()
+//                .stream()
+//                .map(CharacterDTO::new)
+//                .collect(Collectors.toList());
+//    }
 
     public String getName() {
         return name;
@@ -73,15 +74,15 @@ public class CreateGameDTO {
         this.category = category;
     }
 
-    public List<CharacterDTO> getCharacterList() {
+    public List<Character> getCharacterList() {
         return characterList;
     }
 
-    public void setCharacterList(List<CharacterDTO> characterList) {
+    public void setCharacterList(List<Character> characterList) {
         this.characterList = characterList;
     }
 
-    public CreateGameDTO(String name, Date releaseDate, String imageUrl, String rating, Category category, List<CharacterDTO> characterList) {
+    public CreateGameDTO(String name, Date releaseDate, String imageUrl, String rating, Category category, List<Character> characterList) {
         this.name = name;
         this.releaseDate = releaseDate;
         this.imageUrl = imageUrl;
