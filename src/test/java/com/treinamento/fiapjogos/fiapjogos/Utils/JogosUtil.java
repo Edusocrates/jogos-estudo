@@ -71,8 +71,8 @@ public class JogosUtil {
         GameDTO gameDTO = new GameDTO();
         String stringMock = "teste";
         Integer intMock = 123;
-        List<Character> characterList = new ArrayList<>();
-        Character character = new Character();
+        List<CharacterDTO> characterList = new ArrayList<>();
+        CharacterDTO character = new CharacterDTO();
         gameDTO.setName(stringMock);
         gameDTO.setId(intMock);
         gameDTO.setCategory(Category.ACTION);
@@ -84,7 +84,7 @@ public class JogosUtil {
         character.setImageUrl(stringMock);
       //  character.setGame(gameDTO);
         characterList.add(character);
-        gameDTO.setCharacterList(null);//verificar construtor no projeto original
+        gameDTO.setCharacterList(characterList);//verificar construtor no projeto original
         return gameDTO;
     }
     public CreateCharacterDTO populateCreateCharacterDTO(){
@@ -133,5 +133,7 @@ public class JogosUtil {
         return simpleGameDTO;
     }
 
+    public JogosUtil() {
+    }
 
 }
