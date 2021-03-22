@@ -70,7 +70,6 @@ public class GameServiceTest {
         Integer intMock = 123;
         Game game = jogosUtil.populateGame();
         CreateGameDTO createGameDTO = jogosUtil.populateCreateGameDTO();
-        //deveria testar todas condições porem não to afim tb :(
         when(gameRepository.findById(any())).thenReturn(java.util.Optional.ofNullable(game));
         when(gameRepository.save(any())).thenReturn(game);
         assertNotNull(gameService.updateGame(intMock,createGameDTO));

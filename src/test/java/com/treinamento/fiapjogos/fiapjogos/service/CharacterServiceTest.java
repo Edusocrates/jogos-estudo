@@ -67,7 +67,6 @@ public class CharacterServiceTest {
     }
     @Test
     void updateCharacterTest(){
-    //deveria testar todos as condições, porem não to afim agora :(
         Integer intMock = 123;
         Character character = jogosUtil.populateCharacter();
         CreateCharacterDTO createCharacterDTO =  jogosUtil.populateCreateCharacterDTO();
