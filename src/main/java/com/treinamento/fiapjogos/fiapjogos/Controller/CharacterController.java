@@ -18,12 +18,12 @@ public class CharacterController {
 
     //endpoint simplificado para buscar um personagem através do seu id(sem olhar o game)
     @GetMapping
-    public CharacterDTO getCharacter(@RequestParam Integer characterId){
+    public CharacterDTO getCharacter(@PathVariable Integer characterId){
         return service.getCharacterById(characterId);
     }
-    @GetMapping("/all-characters")
+    @GetMapping("/all-characters/{characterId}")
    // @ApiOperation("criei esse endpoint para retornar todos os personagens existentes")
-    public List<CharacterDTO> getAllCharacters(@RequestParam(required = false) Integer characterId){
+    public List<CharacterDTO> getAllCharacters(@PathVariable(required = false) Integer characterId){
 
     return service.getAllCharacters(characterId);
 }
