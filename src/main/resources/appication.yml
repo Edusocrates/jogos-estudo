@@ -2,10 +2,10 @@ server:
   port: 8080
   servlet:
     context-path: /fiapjogos
-  #  h2:
-  #    console:
-  #      enabled: true
-  #      path: /h2-console
+    h2:
+      console:
+        enabled: true
+        path: /h2-console
   jpa:
     show-sql: true
     generate-ddl: true
@@ -23,6 +23,11 @@ turma:
 
 
 spring:
+  security: #configurações de segurança com spring security
+    user: admin
+    password: admin
+    name: admin
+    roles: ADMIN
   jpa:
     show-sql: true
     hibernate:
