@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.treinamento.fiapjogos</groupId>
 	<artifactId>fiapjogos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>fiapjogos</name>
 	<description>Test project for Spring Boot</description>
 	<properties>
