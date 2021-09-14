@@ -23,8 +23,9 @@ public class GameController {
         return service.getGameList(name);
     }
     @GetMapping("{gameId}")
-    public GameDTO getGameById(@RequestParam Integer gameId){
-        return service.findGameById(gameId);
+    public ResponseEntity<GameDTO> getGameById(@RequestParam Integer gameId){
+        GameDTO gameDTO = service.findGameById(gameId);
+        return ResponseEntity.ok(gameDTO);
     }
 
     @PostMapping
